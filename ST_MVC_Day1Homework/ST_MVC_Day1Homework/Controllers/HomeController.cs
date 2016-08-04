@@ -26,5 +26,13 @@ namespace ST_MVC_Day1Homework.Controllers
 
             return View();
         }
+
+        /// <summary>
+        /// 連去作業
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Homework() {
+            return View();
+        }
     }
 }
