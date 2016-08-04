@@ -19,9 +19,13 @@ namespace ST_MVC_Day1Homework.Models
         public List<SelectListItem> TypeList { get; set; }
 
         [Display(Name = "金額")]
-        public double Price { get; set; }
+        [Required]
+        public string Price { get; set; }
+
         [Display(Name = "日期")]
+        [StringLength(10,MinimumLength =10, ErrorMessage ="格式不對")]
         public string Date { get; set; }
+
         [Display(Name = "Grid")]
         public List<HomeworkInputDataModel> GridData { get; set; }
     }
@@ -37,7 +41,7 @@ namespace ST_MVC_Day1Homework.Models
         /// <summary>
         /// 金額
         /// </summary>
-        public double Price { get; set; }
+        public string Price { get; set; }
         /// <summary>
         /// 日期
         /// </summary>
