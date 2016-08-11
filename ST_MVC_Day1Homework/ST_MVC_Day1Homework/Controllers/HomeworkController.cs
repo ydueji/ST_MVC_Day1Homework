@@ -1,4 +1,5 @@
 ﻿using ST_MVC_Day1Homework.Models;
+using ST_MVC_Day1Homework.Models.dbModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,12 @@ namespace ST_MVC_Day1Homework.Controllers
 {
     public class HomeworkController : Controller
     {
+        private AccountBookDAO dao = new AccountBookDAO();
         // GET: Homework
         public ActionResult Homework()
         {
+            var AccountBook = dao.GetAccountBookAllData();
+
             HomeworkViewModel m = new HomeworkViewModel
             {
                 Date = DateTime.Now.ToString("yyyy-MM-dd"),
@@ -20,11 +24,7 @@ namespace ST_MVC_Day1Homework.Controllers
                     new SelectListItem() { Value = "支出", Text = "支出" },
                     new SelectListItem() { Value = "收入", Text = "收入" }
                 },
-                GridData = new List<HomeworkInputDataModel> {
-                    new HomeworkInputDataModel { SerNum=1,Type="支出",Date="2016-01-01",Price="300"},
-                    new HomeworkInputDataModel { SerNum=2,Type="支出",Date="2016-01-02",Price="1600"},
-                    new HomeworkInputDataModel { SerNum=3,Type="支出",Date="2016-01-03",Price="800"}
-                }
+                GridData = AccountBook
             };
             return View(m);
         }

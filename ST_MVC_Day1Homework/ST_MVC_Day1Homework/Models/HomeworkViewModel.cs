@@ -26,6 +26,9 @@ namespace ST_MVC_Day1Homework.Models
         [StringLength(10,MinimumLength =10, ErrorMessage ="格式不對")]
         public string Date { get; set; }
 
+        [Display(Name = "備註")]
+        public string Remark { get; set; }
+        
         [Display(Name = "Grid")]
         public List<HomeworkInputDataModel> GridData { get; set; }
     }
@@ -50,5 +53,15 @@ namespace ST_MVC_Day1Homework.Models
         /// 流水號
         /// </summary>
         public int SerNum { get; set; }
+
+        /// <summary>
+        /// 上次沒做到的備註
+        /// </summary>
+        public string Remark { get; set; }
+
+        /// <summary>
+        /// 上次沒做到的ID
+        /// </summary>
+        public string ID { get; set; }
     }
 }
